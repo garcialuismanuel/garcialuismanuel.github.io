@@ -1,0 +1,8 @@
+---
+title: "index"
+author: "Luis Garcia"
+date: "2022-12-27"
+output: html_document
+---
+
+# This is the index for the website that will be created

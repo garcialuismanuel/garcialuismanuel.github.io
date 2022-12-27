@@ -1,0 +1,8 @@
+name: 'my-website'
+navbar: 
+  title: 'My Website'
+  left:
+    - text : "Home"
+      href : index.html
+    - text : 'Breweries'
+      herf : Luis_Garcia_CaseStudy1.html

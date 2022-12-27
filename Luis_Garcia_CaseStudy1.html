@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Luis Garcia" />
+
+
+<title>Luis_Garcia_CaseStudy1</title>
+
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown-header">Breweries</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Luis_Garcia_CaseStudy1</h1>
+<h4 class="author">Luis Garcia</h4>
+
+</div>
+
+
+<div
+id="in-this-project-we-will-analyze-the-alcohol-contentsabv-and-bitternessibu-of-craft-beers-in-the-breweries-of-united-states.-we-will-perform-an-eda-and-introduce-the-knn-classification-model-of-beer-types-using-abv-and-ibu-values-and-verified-with-beer-samples-in-the-market-including-budweiser-using-r.-additionally-we-will-be-analyzing-the-top-3-breweries-in-the-united-states-and-finding-the-average-abv-and-ibu-of-those-breweries.-as-we-use-the-average-abv-and-ibu-values-we-will-address-to-budweiser-on-what-is-the-best-type-of-alcholic-drink-should-budweiser-produce-in-texas-based-on-our-knn-model.-this-assumes-that-we-are-talking-to-budweiser-in-texas-and-that-they-are-trying-to-produce-a-beer-in-texas."
+class="section level3">
+<h3>In this project, we will analyze the alcohol contents(ABV) and
+bitterness(IBU) of craft beers in the breweries of United States. We
+will perform an EDA and introduce the KNN classification model of beer
+types using ABV and IBU values and verified with beer samples in the
+market including Budweiser using R. Additionally, we will be analyzing
+the top 3 breweries in the United States, and finding the average ABV
+and IBU of those breweries. As we use the average ABV and IBU values, we
+will address to Budweiser on what is the best type of alcholic drink
+should Budweiser produce in Texas, based on our KNN model. This assumes
+that we are talking to Budweiser in Texas, and that they are trying to
+produce a beer in Texas.</h3>
+</div>
+<div id="how-many-breweries-are-present-in-each-state"
+class="section level2">
+<h2>1. How many breweries are present in each state</h2>
+<pre><code>## 
+##  AK  AL  AR  AZ  CA  CO  CT  DC  DE  FL  GA  HI  IA  ID  IL  IN  KS  KY  LA  MA  MD  ME  MI  MN  MO  MS 
+##   7   3   2  11  39  47   8   1   2  15   7   4   5   5  18  22   3   4   5  23   7   9  32  12   9   2 
+##  MT  NC  ND  NE  NH  NJ  NM  NV  NY  OH  OK  OR  PA  RI  SC  SD  TN  TX  UT  VA  VT  WA  WI  WV  WY 
+##   9  19   1   5   3   3   4   2  16  15   6  29  25   5   4   1   3  28   4  16  10  23  20   1   4</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div
+id="merge-beer-data-with-the-breweries-data.-print-the-first-6-observations-and-the-last-six-observations-to-check-the-merged-file.-rmd-only-this-does-not-need-to-be-included-in-the-presentation-or-the-deck."
+class="section level2">
+<h2>2. Merge beer data with the breweries data. Print the first 6
+observations and the last six observations to check the merged file.
+(RMD only, this does not need to be included in the presentation or the
+deck.)</h2>
+<div id="first-6-observations" class="section level3">
+<h3>First 6 observations</h3>
+<pre><code>##   Brew_ID             Name.x        City State        Name.y Beer_ID   ABV IBU
+## 1       1 NorthGate Brewing  Minneapolis    MN       Pumpion    2689 0.060  38
+## 2       1 NorthGate Brewing  Minneapolis    MN    Stronghold    2688 0.060  25
+## 3       1 NorthGate Brewing  Minneapolis    MN   Parapet ESB    2687 0.056  47
+## 4       1 NorthGate Brewing  Minneapolis    MN  Get Together    2692 0.045  50
+## 5       1 NorthGate Brewing  Minneapolis    MN Maggie&#39;s Leap    2691 0.049  26
+## 6       1 NorthGate Brewing  Minneapolis    MN    Wall&#39;s End    2690 0.048  19
+##                                 Style Ounces
+## 1                         Pumpkin Ale     16
+## 2                     American Porter     16
+## 3 Extra Special / Strong Bitter (ESB)     16
+## 4                        American IPA     16
+## 5                  Milk / Sweet Stout     16
+## 6                   English Brown Ale     16</code></pre>
+</div>
+<div id="last-6-observations" class="section level3">
+<h3>Last 6 observations</h3>
+<pre><code>##      Brew_ID                        Name.x          City State                    Name.y Beer_ID   ABV
+## 2405     556         Ukiah Brewing Company         Ukiah    CA             Pilsner Ukiah      98 0.055
+## 2406     557       Butternuts Beer and Ale Garrattsville    NY         Porkslap Pale Ale      49 0.043
+## 2407     557       Butternuts Beer and Ale Garrattsville    NY           Snapperhead IPA      51 0.068
+## 2408     557       Butternuts Beer and Ale Garrattsville    NY         Moo Thunder Stout      50 0.049
+## 2409     557       Butternuts Beer and Ale Garrattsville    NY  Heinnieweisse Weissebier      52 0.049
+## 2410     558 Sleeping Lady Brewing Company     Anchorage    AK Urban Wilderness Pale Ale      30 0.049
+##      IBU                   Style Ounces
+## 2405  NA         German Pilsener     12
+## 2406  NA American Pale Ale (APA)     12
+## 2407  NA            American IPA     12
+## 2408  NA      Milk / Sweet Stout     12
+## 2409  NA              Hefeweizen     12
+## 2410  NA        English Pale Ale     12</code></pre>
+</div>
+</div>
+<div id="address-the-missing-values-in-each-column."
+class="section level2">
+<h2>3. Address the missing values in each column.</h2>
+<pre class="r"><code>hello_NA = hello_merge[!complete.cases(hello_merge),]
+dim(hello_NA)</code></pre>
+<pre><code>## [1] 1005   10</code></pre>
+<pre><code>##    Brew_ID                    Name.x       City State          Name.y Beer_ID   ABV IBU
+## 19       2 Against the Grain Brewery Louisville    KY  Kamen Knuddeln    2676 0.065  NA
+## 35       6     COAST Brewing Company Charleston    SC        Rye Knot    2656 0.062  NA
+## 36       6     COAST Brewing Company Charleston    SC        Dead Arm    2655 0.060  NA
+## 37       6     COAST Brewing Company Charleston    SC 32°/50° Kölsch     2654 0.048  NA
+## 38       6     COAST Brewing Company Charleston    SC      Blackbeard    2657 0.093  NA
+## 39       6     COAST Brewing Company Charleston    SC        Boy King    2652 0.097  NA
+##                               Style Ounces
+## 19                American Wild Ale     16
+## 35               American Brown Ale     12
+## 36          American Pale Ale (APA)     12
+## 37                           Kölsch     16
+## 38 American Double / Imperial Stout     12
+## 39   American Double / Imperial IPA     16</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div
+id="there-are-over-1000-missing-values-in-ibu-almost-100-in-abv-and-5-in-style.-i-have-decided-to-keep-these-nas"
+class="section level3">
+<h3>There are over 1000 missing values in IBU, almost 100 in ABV, and 5
+in Style. I have decided to keep these NAs</h3>
+</div>
+</div>
+<div
+id="compute-the-median-alcohol-content-and-international-bitterness-unit-for-each-state.-plot-a-bar-chart-to-compare."
+class="section level2">
+<h2>4. Compute the median alcohol content and international bitterness
+unit for each state. Plot a bar chart to compare.</h2>
+<pre><code>## # A tibble: 6 × 3
+##   State medianABV count
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+## 1 &quot; AK&quot;    0.056     25
+## 2 &quot; AL&quot;    0.06      10
+## 3 &quot; AR&quot;    0.052      5
+## 4 &quot; AZ&quot;    0.055     47
+## 5 &quot; CA&quot;    0.058    183
+## 6 &quot; CO&quot;    0.0605   265</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre><code>## # A tibble: 6 × 3
+##   State medianIBU count
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+## 1 &quot; AK&quot;      46      25
+## 2 &quot; AL&quot;      43      10
+## 3 &quot; AR&quot;      39       5
+## 4 &quot; AZ&quot;      20.5    47
+## 5 &quot; CA&quot;      42     183
+## 6 &quot; CO&quot;      40     265</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+</div>
+<div
+id="which-state-has-the-maximum-alcoholic-abv-beer-which-state-has-the-most-bitter-ibu-beer"
+class="section level2">
+<h2>5. Which state has the maximum alcoholic (ABV) beer? Which state has
+the most bitter (IBU) beer?</h2>
+<pre><code>## # A tibble: 6 × 2
+##   State max_alc
+##   &lt;chr&gt;   &lt;dbl&gt;
+## 1 &quot; CO&quot;   0.128
+## 2 &quot; KY&quot;   0.125
+## 3 &quot; IN&quot;   0.12 
+## 4 &quot; NY&quot;   0.1  
+## 5 &quot; CA&quot;   0.099
+## 6 &quot; ID&quot;   0.099</code></pre>
+<pre><code>## # A tibble: 6 × 2
+##   State max_ibu
+##   &lt;chr&gt;   &lt;dbl&gt;
+## 1 &quot; OR&quot;     138
+## 2 &quot; VA&quot;     135
+## 3 &quot; MA&quot;     130
+## 4 &quot; OH&quot;     126
+## 5 &quot; MN&quot;     120
+## 6 &quot; VT&quot;     120</code></pre>
+<div id="colorado-has-the-maximum-abv." class="section level3">
+<h3>Colorado has the maximum ABV.</h3>
+</div>
+<div id="oregon-has-the-maximum-ibu." class="section level3">
+<h3>Oregon has the maximum IBU.</h3>
+</div>
+</div>
+<div
+id="comment-on-the-summary-statistics-and-distribution-of-the-abv-variable."
+class="section level2">
+<h2>6. Comment on the summary statistics and distribution of the ABV
+variable.</h2>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+## 0.00100 0.05000 0.05600 0.05977 0.06700 0.12800      62</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div
+id="the-abv-variable-has-a-mode-around-.5-is-right-skewed-and-has-a-range-of-about-.11."
+class="section level3">
+<h3>The ABV variable has a mode around .5, is right skewed, and has a
+range of about .11.</h3>
+</div>
+</div>
+<div
+id="is-there-an-apparent-relationship-between-the-bitterness-of-the-beer-and-its-alcoholic-content-draw-a-scatter-plot.-make-your-best-judgment-of-a-relationship-and-explain-your-answer."
+class="section level2">
+<h2>7. Is there an apparent relationship between the bitterness of the
+beer and its alcoholic content? Draw a scatter plot. Make your best
+judgment of a relationship and EXPLAIN your answer.</h2>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div
+id="this-data-shows-mild-positive-linear-relationship-between-bitterness-and-alcoholic-content3rd-degree-polynomial.-most-of-beer-bitterness-comes-from-hops."
+class="section level3">
+<h3>This data shows mild positive linear relationship between bitterness
+and alcoholic content(3rd degree polynomial). Most of Beer bitterness
+comes from hops.</h3>
+</div>
+</div>
+<div id="budweiser-knn-model-abv-and-ibu-to-predict-beer-style"
+class="section level2">
+<h2>8. Budweiser KNN model ABV and IBU to predict beer style</h2>
+</div>
+<div id="run-knn-model-with-k-of-17-the-best-k" class="section level2">
+<h2>Run KNN model with K of 17, the best K</h2>
+<pre class="r"><code>test_IPA_and_Ale %&gt;% ggplot(aes(x = ABV, y = IBU, color = correct)) + geom_point() + stat_ellipse() + scale_color_manual(values = c(&#39;green&#39;,&#39;red&#39;)) + ggtitle(&#39;Were classifications correct?&#39;)</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>IPA_and_Ale %&gt;% ggplot(aes(x = ABV, y = IBU, color=Style)) + 
+geom_point() +
+stat_ellipse()+ ggtitle(&#39;ABV and IBU of Ales/IPAs&#39;)</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<div
+id="most-of-the-errors-in-prediction-occus-at-an-abv-of-0.04210285-0.07490283-while-most-errors-for-ibu-occur-at-23.66415-76.24263.-this-makes-sense-as-though-most-ales-are-lower-on-abv-and-ibu-than-ipas-they-overlap-the-most-in-this-area."
+class="section level3">
+<h3>Most of the errors in prediction occus at an ABV of (0.04210285
+0.07490283) while most errors for IBU occur at (23.66415 ,76.24263).
+This makes sense as though most ales are lower on ABV and IBU than IPAs,
+they overlap the most in this area.</h3>
+</div>
+</div>
+<div
+id="market-share-analysis-to-find-the-best-ibu-and-abv-values-of-the-top-three-breweries-then-run-our-knn-model-to-determine-the-best-type-of-beer-for-the-texas-market."
+class="section level2">
+<h2>9.Market Share Analysis to find the best IBU and ABV values of the
+top three breweries, then run our KNN model to determine the best type
+of beer for the Texas market.</h2>
+<pre><code>##   Brew_ID  n                     Name          City State
+## 1      26 32 Sun King Brewing Company  Indianapolis    IN
+## 2      47 23      Sixpoint Craft Ales      Brooklyn    NY
+## 3      81 22   Hopworks Urban Brewery      Portland    OR
+## 4     132 20    Stevens Point Brewery Stevens Point    WI
+## 5     166 20   Great Crescent Brewery        Aurora    IN
+## 6     167 20      Oskar Blues Brewery      Longmont    CO</code></pre>
+<pre><code>##  [1] &quot;Brew_ID&quot; &quot;Name.x&quot;  &quot;City&quot;    &quot;State&quot;   &quot;Name.y&quot;  &quot;Beer_ID&quot; &quot;ABV&quot;     &quot;IBU&quot;     &quot;Style&quot;   &quot;Ounces&quot;</code></pre>
+<pre><code>##    Brew_ID                    Name.x        City State         Name.y Beer_ID        ABV        IBU Style
+## 1        1        NorthGate Brewing  Minneapolis    MN        Pumpion    2689 -0.1358872 -0.4546876   Ale
+## 6        1        NorthGate Brewing  Minneapolis    MN     Wall&#39;s End    2690 -1.0505221 -1.1774168   Ale
+## 7        2 Against the Grain Brewery  Louisville    KY         A Beer    2683 -1.5078395 -0.3025341   Ale
+## 13       2 Against the Grain Brewery  Louisville    KY  Flesh Gourd&#39;n    2681  0.3214302 -1.1013400   Ale
+## 14       2 Against the Grain Brewery  Louisville    KY       Sho&#39;nuff    2680 -1.6602787 -1.4056471   Ale
+## 16       2 Against the Grain Brewery  Louisville    KY The Brown Note    2674 -0.8980830 -1.1393784   Ale
+##    Ounces
+## 1      16
+## 6      16
+## 7      16
+## 13     16
+## 14     16
+## 16     16</code></pre>
+<p><img src="Luis_Garcia_CaseStudy1_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div
+id="the-brewery-who-has-the-most-buildings-is-brewery-vivant-in-mi.-the-sun-king-brewing-company-in-in-and-oskar-blues-brewery-in-co-is-2nd-and-3rd."
+class="section level3">
+<h3>The brewery who has the most buildings is Brewery Vivant in MI. The
+Sun King Brewing Company in IN and Oskar Blues Brewery in CO is 2nd and
+3rd.</h3>
+</div>
+</div>
+<div
+id="what-is-the-best-optimized-abv-and-ibu-in-texas-market-compared-to-the-best-three-markets"
+class="section level2">
+<h2>9.2 What is the best, optimized ABV and IBU in Texas market compared
+to the best three markets?</h2>
+<div
+id="fom-our-analysis-of-the-mean-of-the-three-top-breweries-we-see-that-the-best-mean-abv-and-ibu-value-are-.07107-and-54.65313."
+class="section level3">
+<h3>Fom our analysis of the mean of the three top breweries, we see that
+the best mean ABV and IBU value are .07107 and 54.65313.</h3>
+<pre><code>## [1] Ale
+## attr(,&quot;prob&quot;)
+## [1] 0.7142857
+## Levels: Ale IPA</code></pre>
+</div>
+<div
+id="these-values-would-most-likely-be-classified-as-ale.-thus-we-recommend-to-follow-ale-brewing-methods."
+class="section level3">
+<h3>These values would most likely be classified as Ale. Thus we
+recommend to follow Ale brewing methods.</h3>
+</div>
+<div
+id="in-our-data-analysis-we-have-analyzed-the-datasets-of-brew-and-breweries-focused-on-the-alcohol-contentsabv-and-bitternessibu-in-the-united-states.-we-introduced-the-classification-model-of-beer-types-using-abv-and-ibu-values-and-verified-with-beer-samples-in-the-market-including-budweiser.-we-suggested-in-making-ales-for-budweiser-because-we-use-the-average-ibu-and-abv-values-in-our-knn-model-to-predict-ale.-we-noticed-that-there-could-be-a-bias-in-our-model-due-to-there-being-an-uneven-amount-of-ale-and-ipa-and-so-another-analysis-of-more-data-may-help."
+class="section level3">
+<h3>In our data analysis, we have analyzed the datasets of Brew and
+Breweries focused on the alcohol contents(ABV) and bitterness(IBU) in
+the United States. We introduced the classification model of beer types
+using ABV and IBU values and verified with beer samples in the market
+including Budweiser. We suggested in making Ales for Budweiser because
+we use the average IBU and ABV values in our KNN model to predict Ale.
+We noticed that there could be a bias in our model due to there being an
+uneven amount of Ale and IPA and so another analysis of more data may
+help.</h3>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
