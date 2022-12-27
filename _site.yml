@@ -4,5 +4,5 @@ navbar:
   left:
     - text : "Home"
       href : index.html
-    - text : 'Breweries'
+    - text : "Breweries"
       herf : Luis_Garcia_CaseStudy1.html
