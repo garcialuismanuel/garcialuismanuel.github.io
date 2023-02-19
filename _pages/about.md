@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Austin, Texas 78758. luiscollegeemail24@gmail.com 972-730-5025
+subtitle: Austin, Texas 78758.  luiscollegeemail24@gmail.com.  972-730-5025
 
 profile:
   align: right
