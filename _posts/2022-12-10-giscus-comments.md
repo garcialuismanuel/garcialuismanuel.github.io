@@ -1,3 +1,4 @@
+<!---
 ---
 layout: post
 title: a post with giscus comments
@@ -7,3 +8,4 @@ categories: sample-posts external-services
 giscus_comments: true
 ---
 This post shows how to add GISCUS comments.
+--->
