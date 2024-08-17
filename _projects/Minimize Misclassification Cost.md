@@ -4,7 +4,7 @@ title: MINIMIZE MISCLASSICATION COST
 description: Type 1 and Type 2 Errors Result In Different Loss To The Business
 img: assets/img/7.jpg
 importance: 4
-category: fun
+category: Python-Projects
 ---
 
 

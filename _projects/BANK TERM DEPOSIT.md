@@ -4,7 +4,7 @@ title: BANK TERM DEPOSIT
 description: Classification Project for Stats 2 class
 img: assets/img/7.jpg
 importance: 4
-category: work
+category: Misc/Archive
 ---
 
 <!-- saved from url=(0103)file:///C:/Users/luisg/Documents/LocalGit/Portofolio/garcialuismanuel.github.io/_projects/project2.html -->

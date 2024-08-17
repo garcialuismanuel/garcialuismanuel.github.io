@@ -4,7 +4,7 @@ title: Data Cleaning
 description: Cleaning dataset as part of project to predict house prices
 img: assets/img/3.jpg
 importance: 2
-category: work
+category: Misc/Archive
 ---
 
 

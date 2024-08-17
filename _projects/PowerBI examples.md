@@ -4,7 +4,7 @@ title: Power BI examples
 description: Some visualizations using Power BI
 img: assets/img/7.jpg
 importance: 5
-category: work
+category: Misc/Archive
 ---
 
 

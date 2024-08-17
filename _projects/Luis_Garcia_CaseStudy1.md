@@ -4,7 +4,7 @@ title: Beers and Breweries
 description: a project where we used KNN to classify beers
 img: assets/img/3.jpg
 importance: 2
-category: work
+category: R-Projects
 ---
 
 

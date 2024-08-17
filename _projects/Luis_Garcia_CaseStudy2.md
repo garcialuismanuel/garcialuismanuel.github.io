@@ -4,7 +4,7 @@ title: Employee Attrition
 description: a project that I worked on for DDS course
 img: assets/img/7.jpg
 importance: 3
-category: work
+category: R-Projects
 ---
 
 
