@@ -2,7 +2,7 @@
 layout: page
 title: Reduce Type 1 Errors
 description: Type 1 and Type 2 Errors Result In Different Loss To The Business. Had to find a model that led to lowest cost. Logistic Regression and Neural Networks were used.
-img: assets/img/7.jpg
+img: assets/img/thing_1_2.jpg
 importance: 4
 category: Python-Projects
 ---
