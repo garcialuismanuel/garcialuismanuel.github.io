@@ -8,7 +8,6 @@ category: work
 ---
 
 
-<!DOCTYPE html>
 <!-- saved from url=(0060)file:///C:/Users/luisg/Documents/Stats2/PowerBIExamples.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 

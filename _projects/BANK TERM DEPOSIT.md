@@ -7,7 +7,6 @@ importance: 4
 category: work
 ---
 
-<!DOCTYPE html>
 <!-- saved from url=(0103)file:///C:/Users/luisg/Documents/LocalGit/Portofolio/garcialuismanuel.github.io/_projects/project2.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
