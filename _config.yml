@@ -113,11 +113,12 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-
-blog_name: Luis' Blog # blog_name will be displayed in your blog page
-blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: Assortment of things I thought I should document
-permalink: /blog/:year/:title/
+#### Beginning of commenting out Blog for Now
+#blog_name: Luis' Blog # blog_name will be displayed in your blog page
+#blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+#blog_description: Assortment of things I thought I should document
+#ermalink: /blog/:year/:title/
+#### End of commenting out Blog for Now
 
 # Pagination
 pagination:
