@@ -7,7 +7,6 @@ importance: 4
 category: fun
 ---
 
-<!DOCTYPE html>
 
 <html lang="en">
 <head><meta charset="utf-8"/>
