@@ -2,7 +2,7 @@
 layout: page
 title: Beers and Breweries
 description: Classifying Ales vs IPAs. Had to re-categorize mislabelled beers then classify them. A KNN model was used.
-img: assets/img/3.jpg
+img: assets/img/always_sunny.jpg
 importance: 2
 category: R-Projects
 ---
