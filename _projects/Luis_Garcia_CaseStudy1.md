@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Beers and Breweries
-description: a project where we used KNN to classify beers
+description: Classifying Ales vs IPAs. Had to re-categorize mislabelled beers then classify them. A KNN model was used.
 img: assets/img/3.jpg
 importance: 2
 category: R-Projects

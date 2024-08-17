@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Employee Attrition
-description: a project that I worked on for DDS course
+description: Classifying Attrition for Employees and Predicting Monthly Income as well. Naive Bayes, KNN, and Linear Regression were used.
 img: assets/img/7.jpg
 importance: 3
 category: R-Projects
