@@ -71,8 +71,13 @@ blockquote {
 
   .card-title {
     color: var(--global-text-color);
+	text-transform: capitalize;
   }
 
+  .card-text {
+	text-transform: none;
+  }
+  
   .card-item {
     width: auto;
     margin-bottom: 10px;
@@ -121,9 +126,17 @@ blockquote {
   }
 }
 
+h1.post-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2.25rem;
+}
+
 .post-description {
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  font-style: italic;
+  
   a {
     color: inherit;
     &:hover {
@@ -446,17 +459,19 @@ footer.sticky-bottom {
   }
 
   .grid-sizer, .grid-item {
-    width: 250px;
+    width: 235px;
     margin-bottom: 10px;
   }
 
   h2.category {
-    color: var(--global-divider-color);
-    border-bottom: 1px solid var(--global-divider-color);
+    color: #ab00ff;
+    border-bottom: 2px solid #000;
     padding-top: 0.5rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
-    text-align: right;
+    text-align: left;
+    font-weight: bold;
+    font-size: x-large;
   }
 }
 
