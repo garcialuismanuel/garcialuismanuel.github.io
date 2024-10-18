@@ -2,7 +2,7 @@
 layout: page
 title: reports
 permalink: /Reports/
-description: Notebooks/Rmd files that showcase my machine learning and data analysis skills. The "Reports" page has the business-oriented presentation of findings while this page leans more into the technical aspects. This includes the cleaning and transforming of data,  EDA, and model selection process. 
+description: Business-oriented presentations of findings. 'projects' page leans more into the technical aspects.
 nav: true
 nav_order: 2
 display_categories: [R-Projects, Python-Projects, Misc/Archive]
