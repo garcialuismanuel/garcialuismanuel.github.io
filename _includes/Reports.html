@@ -1,0 +1,36 @@
+<!-- _includes/Reports.html -->
+<div class="grid-sizer"></div>
+<div class="grid-item">
+  {% if Reports.redirect -%}
+  <a href="{{ Reports.redirect }}">
+    {%- else -%}
+    <a href="{{ Reports.url | relative_url }}">
+      {%- endif %}
+      <div class="card hoverable">
+        {%- if Reports.img %}
+        {%- include figure.html
+          path=Reports.img
+          alt="Reports thumbnail" -%}
+        {%- endif %}
+        <div class="card-body">
+          <h2 class="card-title text-lowercase">{{ Reports.title }}</h2>
+          <p class="card-text">{{ Reports.description }}</p>
+          <div class="row ml-1 mr-1 p-0">
+            {%- if Reports.github -%}
+            <div class="github-icon">
+              <div class="icon" data-toggle="tooltip" title="Code Repository">
+                <a href="{{ Reports.github }}"><i class="fab fa-github gh-icon"></i></a>
+              </div>
+              {%- if Reports.github_stars -%}
+              <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+                <i class="fas fa-star"></i>
+                <span id="{{ Reports.github_stars }}-stars"></span>
+              </span>
+              {%- endif %}
+            </div>
+            {%- endif %}
+          </div>
+        </div>
+      </div>
+    </a>
+</div>
