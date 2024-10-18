@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Reports
+title: reports
 permalink: /Reports/
 description: Notebooks/Rmd files that showcase my machine learning and data analysis skills. The "Reports" page has the business-oriented presentation of findings while this page leans more into the technical aspects. This includes the cleaning and transforming of data,  EDA, and model selection process. 
 nav: true
